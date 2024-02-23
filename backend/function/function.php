@@ -201,21 +201,21 @@ function saveUser($username,$password,$firstname,$lastname,$email,$telephone,$po
 	}
 	mysqli_query($con,$sql);
 	mysqli_close($con);
-	
-	echo ("<script language='JavaScript'>
-		window.location.href='manage_user.php';
-		</script>"); 
-	// echo ("<script>
-	// 	$(document).ready(function() {
-	// 		Swal.fire({
-	// 			icon: 'success',
-	// 			title: 'สำเร็จ',
-	// 			text: 'เพิ่มข้อมูลเรียบร้อย',
-	// 			showConfirmButton: false
-	// 		});
-	// 	});
+
+	// echo ("<script language='JavaScript'>
+	// 	window.location.href='manage_user.php';
 	// 	</script>"); 
-	// header("refresh:1; url=manage_user.php"); 
+	echo ("<script>
+		$(document).ready(function() {
+			Swal.fire({
+				icon: 'success',
+				title: 'สำเร็จ',
+				text: 'เพิ่มข้อมูลเรียบร้อย',
+				showConfirmButton: false
+			});
+		});
+		</script>"); 
+	header("refresh:1; url=manage_user.php"); 
 	
 }
 
