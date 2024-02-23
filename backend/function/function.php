@@ -2,7 +2,7 @@
 error_reporting(0);
 
 //เชื่อต่อ Database
-$con = mysqli_connect("localhost","root","","project");
+$con = mysqli_connect("localhost","kztmrmbxtp","8W9u7xQsby","kztmrmbxtp");
 $con->set_charset("utf8");
 
 date_default_timezone_set("Asia/Bangkok");

@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","","project");
+$con = mysqli_connect("localhost","kztmrmbxtp","8W9u7xQsby","kztmrmbxtp");
 $con->set_charset("utf8");
 
 if($_REQUEST["load"]=="user"){

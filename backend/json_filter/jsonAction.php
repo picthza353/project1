@@ -3,7 +3,8 @@
 sleep(1);
 
 // Create connection connect to mysql database
-$con = mysqli_connect("localhost","root","","project");
+$con = mysqli_connect("localhost","kztmrmbxtp","8W9u7xQsby","kztmrmbxtp");
+
 $con->set_charset("utf8");
 // Next dropdown list.
 $nextList = isset($_GET['nextList']) ? $_GET['nextList'] : '';

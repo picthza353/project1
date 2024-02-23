@@ -1,6 +1,6 @@
 <?php
 
-$connect = new PDO('mysql:host=localhost;dbname=project', 'root', '');
+$connect = new PDO('mysql:host=localhost;dbname=kztmrmbxtp', 'kztmrmbxtp', '8W9u7xQsby');
 $connect->exec("set names utf8");
 date_default_timezone_set("Asia/Bangkok");
 
