@@ -57,7 +57,7 @@ if (isset($_GET['delete'])) {
                           
                           <td style="text-align: right;">
                             <a href="edit_working.php?id=<?php echo $data["id"];?>" class="btn btn-outline-info">แก้ไข</a>
-                            <a href="?delete=<?php echo $data['id'];?>" class="btn btn-outline-danger" onClick="javascript: return confirm('ยืนยันการลบ');">ลบ</a>
+                            <a data-id="<?php echo $data["id"];?>" href="?delete=<?php echo $data['id'];?>" class="btn btn-outline-danger delete-btn">ลบ</a>
                           </td>
                         </tr>
                       <?php } ?>
@@ -75,7 +75,48 @@ if (isset($_GET['delete'])) {
       ?>
     </div>
   </main>
+  <script>
+    $('.delete-btn').click(function(e) {
+      var id = $(this).data('id');
+      e.preventDefault();
+      deleteConfirm(id);
+    })
 
+    function deleteConfirm(id) {
+      Swal.fire({
+        title: 'ยืนยันการลบ',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#777',
+        confirmButtonText: 'ยืนยัน',
+        cancelButtonText: 'ยกเลิก',
+        showLoaderOnConfirm: true,
+        preConfirm: function() {
+          return new Promise(function(resolve){
+            $.ajax({
+              url: 'manage_working.php',
+              type: 'GET',
+              data: 'delete=' + id,
+            })
+            .done(function() {
+              Swal.fire({
+                title: 'สำเร็จ',
+                text: 'ลบข้อมูลเรียบร้อย',
+                icon: 'success',
+                confirmButtonText: 'ยืนยัน'
+              }).then(() => {
+                document.location.href = 'manage_working.php';
+              })
+            })
+            .fail(function() {
+              Swal.fire('เกิดข้อผิดพลาด', 'ไม่สามารถลบข้อมูลได้', 'error');
+              window.location.reload();
+            })
+          })
+        }
+      })
+    }
+  </script>                      
 
 </body>
 
